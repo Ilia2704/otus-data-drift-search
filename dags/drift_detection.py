@@ -31,8 +31,8 @@ with DAG(
     check_drift_task = KubernetesPodOperator(
         task_id="drift-checker",
         name="drift-checker",
-        namespace="drift-detection",
-        image="nickosipov/drift-checker:latest",
+        image="drift-checker:latest",
+        image_pull_policy="IfNotPresent",
         image_pull_policy="Always",
         service_account_name="airflow",
         env_vars={

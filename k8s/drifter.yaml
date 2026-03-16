@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
       - name: drifter
-        image: nickosipov/drifter:latest
-        imagePullPolicy: Always
+        image: drifter:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
         env:
