@@ -59,7 +59,7 @@ echo -e "${GREEN}✅ Secrets созданы${NC}"
 
 # 7. Развертывание сервисов
 echo -e "${YELLOW}🚢 Развертывание PostgreSQL...${NC}"
-kubectl apply -f k8s/postgres.yaml
+kubectl apply -f k8s/airflow-postgres.yaml
 
 echo -e "${YELLOW}🚢 Развертывание MinIO...${NC}"
 kubectl apply -f k8s/minio.yaml
@@ -92,7 +92,7 @@ echo -e "${GREEN}✅ MinIO инициализирован${NC}"
 
 # 9. Копирование DAG
 echo -e "${YELLOW}📋 Копирование DAG в Airflow...${NC}"
-./copy-dag.sh
+./scripts/copy-dag.sh
 
 # 10. Вывод информации
 echo ""
