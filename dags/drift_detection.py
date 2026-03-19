@@ -33,7 +33,6 @@ with DAG(
         name="drift-checker",
         image="drift-checker:latest",
         image_pull_policy="IfNotPresent",
-        image_pull_policy="Always",
         service_account_name="airflow",
         env_vars={
             "DRIFTER_URL": "http://drifter.drift-detection.svc.cluster.local/api/v1/data",

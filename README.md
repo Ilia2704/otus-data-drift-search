@@ -259,3 +259,91 @@ minikube delete
 6. Настроить PostgreSQL с репликацией и резервным копированием
 7. Настроить мониторинг (Prometheus, Grafana)
 8. Логирование и алерты при дрифте
+
+## Если что-то пошло не так
+
+Дополнительный набор комманд: 
+
+*открыть веб-панель Minikube*
+
+```bash
+minikube dashboard
+```
+
+*показать все pod'ы во всех namespace*
+
+```bash
+kubectl get pods -A
+```
+
+*показать все сервисы во всех namespace*
+
+```bash
+kubectl get svc -A
+```
+
+*показать все deployment'ы во всех namespace*
+
+```bash
+kubectl get deploy -A
+```
+
+*показать потребление CPU и памяти всеми pod'ами*
+
+```bash
+kubectl top pods -A
+```
+
+*показать потребление CPU и памяти узлами кластера*
+
+```bash
+kubectl top nodes
+```
+
+*показать список профилей Minikube с деталями*
+
+```bash
+minikube profile list -d
+```
+
+*остановить текущий кластер Minikube*
+
+```bash
+minikube stop
+```
+
+*удалить все кластеры Minikube и очистить локальные данные*
+
+```bash
+minikube delete --all --purge
+```
+
+*удалить оставшиеся Docker-контейнеры, если они существуют*
+
+```bash
+docker rm -f minikube lecture 2>/dev/null || true
+```
+
+*удалить запись о кластере Minikube из kubeconfig*
+
+```bash
+kubectl config delete-cluster minikube 2>/dev/null || true
+```
+
+*удалить контекст Minikube из kubeconfig*
+
+```bash
+kubectl config delete-context minikube 2>/dev/null || true
+```
+
+*удалить пользователя Minikube из kubeconfig*
+
+```bash
+kubectl config delete-user minikube 2>/dev/null || true
+```
+
+*очистить локальный кэш kubectl*
+
+```bash
+rm -rf ~/.kube/cache
+```
